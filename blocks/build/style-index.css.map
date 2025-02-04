@@ -1,0 +1,1 @@
+{"version":3,"file":"./style-index.css","mappings":";;;AAAA;EACC;AACD;AACC;EACC;AACF,C","sources":["webpack://simple-cpt-press/./blocks/src/style.scss"],"sourcesContent":[".wp-block-a8csp-press-release-fields {\n\tdisplay: inline-flex;\n\n\t.meta-value {\n\t\tmargin: 0 0.4ch; // 0.4ch is a blank space width\n\t}\n}\n"],"names":[],"sourceRoot":""}

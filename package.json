@@ -1,7 +1,7 @@
 {
-  "name": "team51-plugin-scaffold",
+  "name": "simple-cpt-press",
   "version": "1.0.0",
-  "description": "A scaffold for WP.com Special Projects plugins",
+  "description": "Add a custom post type for press releases, with a pattern-based block for displaying them.",
   "author": {
     "name": "WordPress.com Special Projects Team",
     "url": "https://wpspecialprojects.wordpress.com"
@@ -10,15 +10,16 @@
   "keywords": [
     "wordpress"
   ],
-  "homepage": "https://wordpress.org/plugins/team51-plugin-scaffold",
-  "repository": "https://github.com/a8cteam51/team51-plugin-scaffold",
-  "bugs": "https://github.com/a8cteam51/team51-plugin-scaffold/issues",
+  "homepage": "https://wordpress.org/plugins/simple-cpt-press",
+  "repository": "https://github.com/a8cteam51/simple-cpt-press",
+  "bugs": "https://github.com/a8cteam51/simple-cpt-press/issues",
   "engines": {
     "node": ">=18.15",
     "npm": ">=9.5"
   },
   "devDependencies": {
     "@csstools/postcss-sass": "^5.0.1",
+    "@wordpress/blocks": "^14.6.0",
     "@wordpress/browserslist-config": "^5.9.1",
     "@wordpress/postcss-plugins-preset": "^4.10.2",
     "@wordpress/scripts": "^25.3.4",
@@ -54,11 +55,12 @@
     "lint:styles": "wp-scripts lint-style blocks/**/*.{css,sass,scss} assets/css/**/*.{css,sass,scss} --allow-empty-input --report-descriptionless-disables --report-invalid-scope-disables --report-needless-disables",
     "lint:pkg-json": "wp-scripts lint-pkg-json",
     "lint:readme-md": "wp-scripts lint-md-docs README.md",
+    "build-production": "npm-run-all --sequential format:scripts format:styles lint:scripts lint:styles build",
     "packages-update": "wp-scripts packages-update --dist-tag=wp-6.2",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "start": "npm-run-all --parallel start:**",
     "start:blocks": "wp-scripts start --webpack-src-dir=blocks/src --output-path=blocks/build",
-    "start:assets:scripts": "wp-scripts start assets/js/src/*.js --output-path=assets/js/build"
+    "start:assets:scripts": "wp-scripts start --webpack-src-dir=assets/js/src --output-path=assets/js/build"
   }
 }
