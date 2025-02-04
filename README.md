@@ -1,69 +1,52 @@
-# Team 51 Plugin Scaffold
+# Press Items Plugin
 
-Welcome to the Team 51 Plugin Scaffold, a standardized starting point for creating new WordPress plugins for Team 51. This repository contains the necessary files and structure to ensure a consistent approach when developing new plugins.
+Welcome to the Press Items Plugin, a custom plugin for managing press items in WordPress. This plugin allows you to create and manage press items with specific fields and categories.
 
 ## Getting Started
+The plugin creates a new CPT called Press Items with a Press Type category
 
-To begin, run the command `team51 create-repository --repo-type=plugin`
+![imagen](https://github.com/user-attachments/assets/933e478d-3bb9-4521-8579-4d858b610fa2)
 
-If you don't want to create a repository for your plugin, another option is to clone or download this repository. Rename the folder and the main PHP file with your desired plugin name. Be sure to follow the naming convention: plugin-name for the folder and plugin-name.php for the main PHP file.
+![imagen](https://github.com/user-attachments/assets/8bd73d3f-f8dc-4b36-96f0-db7e62ce02b7)
 
-## Configuration
+A press item could be either internal or external:
 
-You'll need to update the following fields in the main PHP file's header:
+- Internal: Have blocks stored in the page content and doesn't have a Press Link
+- External: Doesn't need block content, but must have a Press Link
 
-- Plugin Name: The name of your plugin
-- Plugin URI: The URL of the plugin's repository
-- Description: A brief description of the plugin's functionality.
+**NOTE:** `When an external press item is visited, it will be redirected to the external source`
 
-## Folder Structure
+### Editing a Press Item
 
-This scaffold has the following folder structure:
+The press item information must be added in the item sidebar
 
-```
-plugin-name/
-├── assets/
-│   ├── css/
-│   │   ├── build/
-│   │   └── src/
-│   ├── js/
-│   │   ├── build/
-│   │   └── src/
-│   └── images/
-├── blocks/
-│   ├── build/
-│   └── src/
-├── includes/
-├── languages/
-├── models/
-├── src/
-│   ├ ...
-│   └── Integrations/
-├── templates/
-│   ├ ...
-│   └── admin/
-└── plugin-name.php
-```
+![imagen](https://github.com/user-attachments/assets/adc5fa14-ab17-4a23-931f-80ac73f8866b)
 
-- assets: A folder to store all static assets such as styles, scripts, and images.
-- blocks: A folder for storing Gutenberg block files, if the plugin uses custom blocks.
-- includes: Contains any PHP files with additional functionality for the plugin. Mostly useful for helper functions.
-- languages: Contains the translation files for your plugin.
-- models: Contains PHP classes or data models that represent the plugin's data structures. As an example, think of WooCommerce's `WC_Order` class.
-- src: A folder for organizing the plugin's main PHP classes or code components, such as integrations with other plugins or services. These classes should be organized into subfolders following the [PSR-4](https://www.php-fig.org/psr/psr-4/) convention. `Composer` will handle the autoloading for these classes.
-- templates: Contains any PHP template files used for rendering HTML output. Admin templates should generally be in their own folder separated from front-end templates.
-- plugin-name.php: The main PHP file containing the plugin header and bootstraping functionality.
+All press items require: content and outlet. The excerpt, cover image, author, and link are optional
 
-## Development
+![imagen](https://github.com/user-attachments/assets/d26e67b2-4ea1-41ca-9615-7b080c1349c4)
 
-Develop your plugin by adding the necessary functionality by creating new files within the includes folder. Remember to enqueue your styles and scripts within the assets folder.
+**IMPORTANT:** `If the press item is external, the link is required and the content is optional`
 
-Follow the WordPress Coding Standards for PHP, CSS, and JavaScript when writing your code. You can read more about linting and formatting your code in the [Team51 Project Scaffold](https://github.com/a8cteam51/team51-project-scaffold#code-style--quality).
+If required fields are missing, the press item can't be saved
+![imagen](https://github.com/user-attachments/assets/d9242fce-0b59-4ef3-8a70-13ea6659e2d6)
 
-## Documentation
+### Press Item Template
+The plugin creates a Singles Press template to show the internal press items
 
-As you develop your plugin, update the README.md file with detailed information about your plugin's features, usage, installation, and any other pertinent information.
+![imagen](https://github.com/user-attachments/assets/5cc8b3cc-a507-44f7-8162-57fb1486a1c1)
 
-## Testing
+It also adds a pattern that can be added anywhere
+![imagen](https://github.com/user-attachments/assets/f4318c1e-9402-4284-a5f2-968e7cb3ad3d)
 
-If your plugin is WooCommerce specific, it should be tested with the Storefront theme and latest default theme. If it's a general plugin, it should be tested with the latest default theme as well as Twenty Twenty-One (a non-FSE theme).
+The pattern uses a new block "Press Release fields" to shows either the **Press Outlet** or the **Press Author**
+![imagen](https://github.com/user-attachments/assets/7e391e0d-74d6-4a24-9135-124729fce810)
+
+This block could be added a Prefix and Suffix
+![imagen](https://github.com/user-attachments/assets/200aac1a-d158-4457-8d2c-bd210457279e)
+![imagen](https://github.com/user-attachments/assets/9fbdfa92-4a12-43d7-bef2-5790b176cefb)
+
+The block work with the new no-reload query
+https://github.com/user-attachments/assets/369b8834-69c2-4b72-bd86-d79bfa256bfe
+
+
