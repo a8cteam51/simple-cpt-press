@@ -38,6 +38,9 @@ export default function Edit( {
 		}
 	}, [ suffix ] );
 
+	// Get the metaValue
+	const metaValue = ( meta && meta[ metaKey ] ) || ' -- ';
+
 	return (
 		<>
 			<InspectorControls>
@@ -74,7 +77,7 @@ export default function Edit( {
 						ref={ prefixRef }
 					/>
 				) }
-				<span className="meta-value">{ meta[ metaKey ] }</span>
+				<span className="meta-value">{ metaValue }</span>
 				{ ! isSelected && <span className="suffix">{ suffix }</span> }
 				{ isSelected && (
 					<input

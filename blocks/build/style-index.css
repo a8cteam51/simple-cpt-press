@@ -1,11 +1,1 @@
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./blocks/src/style.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
-.wp-block-a8csp-press-release-fields {
-  display: inline-flex;
-}
-.wp-block-a8csp-press-release-fields .meta-value {
-  margin: 0 0.4ch;
-}
-
-/*# sourceMappingURL=style-index.css.map*/
+.wp-block-a8csp-press-release-fields{display:inline-flex}.wp-block-a8csp-press-release-fields .meta-value{margin:0 .4ch}

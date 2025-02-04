@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { select, dispatch, subscribe } from '@wordpress/data';
+import { select, dispatch } from '@wordpress/data';
 import { useEntityProp } from '@wordpress/core-data';
 import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { TextControl, PanelRow } from '@wordpress/components';
@@ -15,7 +15,6 @@ const PressMetaFields = () => {
 		'press-invalid-outlet': false,
 		'press-invalid-url': false,
 	} );
-	const isTrackingRef = useRef( false );
 
 	// Lock or unlock the post's saving.
 	const trackLock = useCallback( ( lockIt, handle ) => {
@@ -116,7 +115,10 @@ const PressMetaFields = () => {
 					</PanelRow>
 					<PanelRow>
 						<TextControl
-							label={ __( 'Press Author (Optional)', 'cpt-press' ) }
+							label={ __(
+								'Press Author (Optional)',
+								'cpt-press'
+							) }
 							type="text"
 							onChange={ ( value ) =>
 								setMeta( { ...meta, _press_author: value } )

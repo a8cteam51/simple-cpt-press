@@ -81,6 +81,7 @@ class CPT_Press {
 	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @access public
+	 * @hook   enqueue_block_editor_assets
 	 *
 	 * @return void
 	 */
@@ -92,7 +93,8 @@ class CPT_Press {
 				'cpt-press-meta-fields',
 				WPCOMSP_CPT_PRESS_URL . 'assets/js/build/index.js',
 				$assets['dependencies'],
-				$assets['version']
+				$assets['version'],
+				true
 			);
 		}
 	}
@@ -103,6 +105,7 @@ class CPT_Press {
 	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @access public
+	 * @hook   post_type_link
 	 *
 	 * @param string  $post_link The post's permalink.
 	 * @param WP_Post $post      The post in question.
@@ -171,7 +174,7 @@ class CPT_Press {
 		);
 
 		// Register all the patterns.
-		foreach ( glob( WPCOMSP_CPT_PRESS_PATH . '/patterns/*.html' ) as $pattern_path ) {
+		foreach ( glob( WPCOMSP_CPT_PRESS_PATH . 'patterns/*.html' ) as $pattern_path ) {
 			$pattern_info = pathinfo( $pattern_path );
 
 			// Convert the file name into a camel case string.
@@ -182,7 +185,7 @@ class CPT_Press {
 				"cpt-press/{$pattern_info['filename']}",
 				array(
 					'title'      => $pattern_title,
-					'filePath'   => WPCOMSP_CPT_PRESS_PATH . '/patterns/' . $pattern_info['basename'],
+					'filePath'   => $pattern_path,
 					'categories' => array( 'cpt-press' ),
 					'keywords'   => array( 'press release', 'press release query' ),
 					'inserter'   => true,
@@ -197,7 +200,7 @@ class CPT_Press {
 	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @access public
-	 * @hook   init
+	 * @hook init
 	 *
 	 * @return void
 	 */
@@ -211,12 +214,12 @@ class CPT_Press {
 	/**
 	 * Register the press custom post type.
 	 *
-	 * @return void
+	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @access public
 	 * @hook init
 	 *
-	 * @since 1.0.0
+	 * @return void
 	 */
 	public static function register_press_items_post_type(): void {
 		$labels = array(
@@ -270,28 +273,28 @@ class CPT_Press {
 	/**
 	 * Register press item template.
 	 *
-	 * @return void
+	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @access public
 	 * @hook init
 	 *
-	 * @since 1.0.0
+	 * @return void
 	 */
 	public static function register_press_item_templates(): void {
 
 		// Register all the templates.
-		foreach ( glob( WPCOMSP_CPT_PRESS_PATH . '/templates/*.html' ) as $template_path ) {
+		foreach ( glob( WPCOMSP_CPT_PRESS_PATH . 'templates/*.html' ) as $template_path ) {
 			$template_info = pathinfo( $template_path );
 
 			// Convert the file name into a camel case string.
 			$template_title = ucwords( str_replace( '-', ' ', $template_info['filename'] ) );
 
 			// phpcs:ignore -- Get the template content.
-			$template_content = file_get_contents( WPCOMSP_CPT_PRESS_PATH . '/templates/' . $template_info['basename'] );
+			$template_content = file_get_contents( $template_path );
 
 			// Register the block template
 			register_block_template(
-				"cpt-press/{$template_info['filename']}",
+				"simple-cpt-press//{$template_info['filename']}",
 				array(
 					'title'      => $template_title,
 					'content'    => $template_content,
@@ -303,6 +306,13 @@ class CPT_Press {
 
 	/**
 	 * Registers the custom post-type meta_items in Gutenberg.
+	 *
+	 * @since 1.0.0
+	 * @version 1.0.0
+	 * @access public
+	 * @hook init
+	 *
+	 * @return void
 	 */
 	public static function register_press_meta(): void {
 
@@ -362,7 +372,11 @@ class CPT_Press {
 	 * Register a custom taxonomy for the "press" post-type
 	 *
 	 * @since 1.0.0
-	 * @see get_post_type_labels() for label keys.
+	 * @version 1.0.0
+	 * @access public
+	 * @hook init
+	 *
+	 * @return void
 	 */
 	public static function register_press_type_taxonomy(): void {
 		$labels = array(
@@ -404,6 +418,7 @@ class CPT_Press {
 	 * @since 1.0.0
 	 * @version 1.0.0
 	 * @access public
+	 * @callback render_callback
 	 *
 	 * @param array  $attributes The block's attributes.
 	 * @param string $content    The block's content.
@@ -442,4 +457,3 @@ class CPT_Press {
 
 	// endregion
 }
-
