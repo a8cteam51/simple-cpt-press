@@ -17,8 +17,13 @@ jobs:
         id: get_plugin_version
         run: echo "VERSION=$(grep "Version:" ${{ github.event.repository.name }}.php | awk '{print $3}')" >> "$GITHUB_OUTPUT"
 
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm run build
+
       - name: Zip folder
-        run: git archive --format=zip --output=${{ github.event.repository.name }}.zip HEAD -- .
+        run: zip -r ${{ github.event.repository.name }}.zip . -x "node_modules/*" ".gitignore" ".editorconfig" ".phpcs.xml" "composer.json" "composer.lock" "package.json" "package-lock.json"
 
       - name: Create release
         id: create_github_release
