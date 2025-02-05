@@ -17,11 +17,6 @@ jobs:
         id: get_plugin_version
         run: echo "VERSION=$(grep "Version:" ${{ github.event.repository.name }}.php | awk '{print $3}')" >> "$GITHUB_OUTPUT"
 
-      - name: Install dependencies
-        run: |
-          npm ci
-          npm run build
-
       - name: Zip folder
         run: zip -r ${{ github.event.repository.name }}.zip . -x "node_modules/*" ".gitignore" ".editorconfig" ".phpcs.xml" "composer.json" "composer.lock" "package.json" "package-lock.json"
 
