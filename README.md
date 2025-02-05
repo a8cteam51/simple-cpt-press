@@ -36,17 +36,26 @@ The plugin creates a Singles Press template to show the internal press items
 
 ![imagen](https://github.com/user-attachments/assets/5cc8b3cc-a507-44f7-8162-57fb1486a1c1)
 
-It also adds a pattern that can be added anywhere
-![imagen](https://github.com/user-attachments/assets/f4318c1e-9402-4284-a5f2-968e7cb3ad3d)
+It also adds a some patterns that can be added anywhere
 
-The pattern uses a new block "Press Release fields" to shows either the **Press Outlet** or the **Press Author**
+![imagen](https://github.com/user-attachments/assets/e433cfa2-36a1-4b52-835a-1f6c7bab6cb6)
+
+### Press Release fields Block
+The pattern uses a new block "Press Release fields" to show either the **Press Outlet** or the **Press Author**
 ![imagen](https://github.com/user-attachments/assets/7e391e0d-74d6-4a24-9135-124729fce810)
 
-This block could be added a Prefix and Suffix
+This block allows the addition of Prefix and Suffix
+
 ![imagen](https://github.com/user-attachments/assets/200aac1a-d158-4457-8d2c-bd210457279e)
 ![imagen](https://github.com/user-attachments/assets/9fbdfa92-4a12-43d7-bef2-5790b176cefb)
 
-The block work with the new no-reload query
-https://github.com/user-attachments/assets/369b8834-69c2-4b72-bd86-d79bfa256bfe
+The block works with the new no-reload query option
+
+![imagen](https://github.com/user-attachments/assets/4d1a6db2-13e7-4b35-9c87-54d2727883af)
+
+
+## Installation
+
+The zipped plugin can be downloaded directly from trunk and installed in the WordPress admin panel
 
 
