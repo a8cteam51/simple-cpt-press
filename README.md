@@ -2,6 +2,10 @@
 
 Welcome to the Press Items Plugin, a custom plugin for managing press items in WordPress. This plugin allows you to create and manage press items with specific fields and categories.
 
+## Installation
+
+The zipped plugin can be downloaded directly from the latest release file [here](https://github.com/a8cteam51/simple-cpt-press/releases/latest)
+
 ## Getting Started
 The plugin creates a new CPT called Press Items with a Press Type category
 
@@ -53,9 +57,5 @@ The block works with the new no-reload query option
 
 ![imagen](https://github.com/user-attachments/assets/4d1a6db2-13e7-4b35-9c87-54d2727883af)
 
-
-## Installation
-
-The zipped plugin can be downloaded directly from the latest release file [here](https://github.com/a8cteam51/simple-cpt-press/releases/latest)
 
 
