@@ -56,6 +56,6 @@ The block works with the new no-reload query option
 
 ## Installation
 
-The zipped plugin can be downloaded directly [here](https://github.com/a8cteam51/simple-cpt-press/blob/trunk/simple-cpt-press.zip) or from trunk, and installed in the WordPress admin panel
+The zipped plugin can be downloaded directly from the latest release file [here](https://github.com/a8cteam51/simple-cpt-press/releases/latest)
 
 
